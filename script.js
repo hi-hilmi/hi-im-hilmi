@@ -782,7 +782,13 @@ function openProjectModal(category) {
     const modalProjects = document.getElementById('modalProjects');
     
     const data = projectData[category];
-    modalTitle.textContent = data.title;
+    
+    // Special title for academic projects
+    if (category === 'academic') {
+        modalTitle.innerHTML = `${data.title}<br><span style="font-size: 0.7em; color: var(--text-secondary); font-weight: 400;">Institut Teknologi Nasional Bandung</span>`;
+    } else {
+        modalTitle.textContent = data.title;
+    }
     
     // Clear previous content
     modalProjects.innerHTML = '';
